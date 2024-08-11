@@ -12,11 +12,6 @@ class ClassicEvent(EventBaseModel):
     registration_link = models.URLField(
         'ссылка на регистрацию',
     )
-    partners = models.ManyToManyField(
-        Partner,
-        verbose_name='партнёры классического мероприятия',
-        blank=True,
-    )
 
     class Meta:
         verbose_name = 'классическое мероприятие'

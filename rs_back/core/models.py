@@ -80,19 +80,23 @@ class EventBaseModel(ImageBaseModel):
     """
     title = models.CharField(
         'название',
-        max_length=150,
-        help_text='Максимум 150 символов',
+        max_length=32,
+        help_text='Максимум 32 символа',
     )
     description = models.TextField(
         'описание',
+        max_length=512,
+        help_text='Максимум 512 символов',
     )
     photo_album_url = models.URLField(
         'ссылка на фото-альбом',
         blank=True,
+        max_length=128,
     )
     documents_url = models.URLField(
         'ссылка на документы',
         blank=True,
+        max_length=128,
     )
     location = models.URLField(
         'место проведения',

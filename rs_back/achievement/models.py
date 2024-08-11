@@ -9,18 +9,23 @@ class Achievement(ImageBaseModel):
     """
     title = models.CharField(
         'название',
-        max_length=150,
+        max_length=32,
+        help_text='Максимум 32 символа',
     )
     description = models.TextField(
         'описание',
+        max_length=220,
+        help_text='Максимум 220 символов',
     )
     photo_album_url = models.URLField(
         'ссылка на фото-альбом',
         blank=True,
+        max_length=128,
     )
     link_to_media = models.URLField(
         'ссылка на СМИ',
         blank=True,
+        max_length=128,
     )
 
     class Meta:

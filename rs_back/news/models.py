@@ -9,13 +9,17 @@ class News(ImageBaseModel):
     """
     title = models.CharField(
         'название',
-        max_length=150
+        max_length=32,
+        help_text='Максимум 32 символа',
     )
     description = models.TextField(
         'описание',
+        max_length=200,
+        help_text='Максимум 200 символов',
     )
     new_url = models.URLField(
         'ссылка на новость',
+        max_length=128,
     )
 
     class Meta:

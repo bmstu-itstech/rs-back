@@ -28,7 +28,8 @@ class HardathonByIdSerializer(serializers.ModelSerializer):
                   'date_for_accepting_applications',
                   'closing_date_for_applications',
                   'summing_up_date', 'main_organizer_photo',
-                  'main_organizer_word', 'competition_task', 'event_date')
+                  'main_organizer_word', 'competition_task', 'event_date',
+                  'social_media_mention',)
 
 
 class DetailProjectSerializer(serializers.ModelSerializer):

@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'drf_spectacular',
-    'corsheaders.middleware.CorsMiddleware',
+    'corsheaders',
+
+    'news',
 ]
 
 MIDDLEWARE = [
@@ -136,4 +138,8 @@ CORS_ALLOWED_ORIGINS = [
 # REST Django framework
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'SCHEMA_PATH_PREFIX': r'/api/v[0-9]',
 }

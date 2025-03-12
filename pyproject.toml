@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "rs-back"
+version = "0.1.0"
+description = ""
+authors = ["zhikh <zhikh.k@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django-debug-toolbar = "^5.0.1"
+drf-spectacular = "^0.28.0"
+django-cors-headers = "^4.7.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

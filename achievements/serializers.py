@@ -14,3 +14,6 @@ class AchievementSerializer(serializers.ModelSerializer):
             'media_url',
             'image',
         )
+        extra_kwargs = {
+            'image': { 'required': False },
+        }

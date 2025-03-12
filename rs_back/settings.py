@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'news',
     'achievements',
     'partners',
+    'events',
 ]
 
 MIDDLEWARE = [

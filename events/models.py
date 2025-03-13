@@ -38,3 +38,7 @@ class Event(models.Model):
         blank=True,
         help_text='Ссылка на нормативные документы, регламентирующие проведение мероприятия',
     )
+
+    class Meta:
+        verbose_name = 'Событие'
+        verbose_name_plural = 'События'

@@ -1,6 +1,6 @@
 # rs-back
 
-Бэкенд сайта «Центра молодёжной робототехники»
+Бэкенд сайта «Центр молодёжной робототехники»
 
 ## Необходимо
 
@@ -12,7 +12,7 @@
 
 ```shell
 git clone git@github.com:bmstu-itstech/rs-back.git
-cd fivvt-backend
+cd rs-back
 ```
 
 2. Создать виртуальное окружение Python (venv) через Poetry.

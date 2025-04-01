@@ -38,6 +38,13 @@ class Event(models.Model):
         blank=True,
         help_text='Ссылка на нормативные документы, регламентирующие проведение мероприятия',
     )
+    background_img = models.ImageField(
+        'Изображение',
+        blank=True,
+        null=True,
+        upload_to='events/backgrounds/',
+        help_text='Фоновое изображение для мероприятия'
+    )
 
     class Meta:
         verbose_name = 'Событие'

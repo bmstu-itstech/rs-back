@@ -15,6 +15,8 @@ class EventSerializer(serializers.ModelSerializer):
             'album_url',
             'on_map_url',
             'docs_url',
+            'registration_url',
+            'background_img',
         )
         extra_kwargs = {
             'description': { 'required': False },
@@ -23,4 +25,6 @@ class EventSerializer(serializers.ModelSerializer):
             'album_url': { 'required': False },
             'on_map_url': { 'required': False },
             'docs_url': { 'required': False },
+            'registration_url': { 'required': False },
+            'background_img': { 'required': False },
         }

@@ -19,7 +19,7 @@ if settings.DEBUG:
         path(API_PREFIX + '/schema/', SpectacularAPIView.as_view(), name='schema'),
         path(API_PREFIX + '/swagger/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger')
     ]
-    
+
     urlpatterns += static(
         settings.MEDIA_URL,
         document_root=settings.MEDIA_ROOT,

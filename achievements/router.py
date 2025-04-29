@@ -1,11 +1,12 @@
 from rest_framework import viewsets
-from rest_framework.pagination import LimitOffsetPagination
 
 from achievements.models import Achievement
 from achievements.serializers import AchievementSerializer
 
+from utils.pagination import CustomPagination, CustomListView
 
-class AchievementsViewSet(viewsets.ModelViewSet):
+
+class AchievementsViewSet(CustomListView, viewsets.ModelViewSet):
     queryset = Achievement.objects.all()
     serializer_class = AchievementSerializer
-    pagination_class = LimitOffsetPagination
+    pagination_class = CustomPagination

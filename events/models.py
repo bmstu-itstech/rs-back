@@ -38,6 +38,18 @@ class Event(models.Model):
         blank=True,
         help_text='Ссылка на нормативные документы, регламентирующие проведение мероприятия',
     )
+    registration_url = models.URLField(
+        'Регистрация',
+        blank=True,
+        help_text='Ссылка на регистрацию на событие',
+    )
+    background_img = models.ImageField(
+        'Изображение',
+        blank=True,
+        null=True,
+        upload_to='events/backgrounds/',
+        help_text='Фоновое изображение для мероприятия',
+    )
 
     class Meta:
         verbose_name = 'Событие'

@@ -6,4 +6,6 @@ urlpatterns = [
     path('achievements/', include('achievements.urls')),
     path('events/', include('events.urls')),
     path('partners/', include('partners.urls')),
+    path('hardathons/', include('hardathons.urls')),
+    path('hardathons_preview/', include('hardathons_preview.urls')),
 ]

@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'achievements',
     'partners',
     'events',
+    'hardathons',
+    'hardathons_preview',
 ]
 
 MIDDLEWARE = [

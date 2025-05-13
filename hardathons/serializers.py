@@ -10,6 +10,7 @@ class HardathonSerializer(serializers.ModelSerializer):
             'id',
             'title',
             'href',
+            'quote',
             'background_image',
             'date',
             'start_date',
@@ -24,6 +25,7 @@ class HardathonSerializer(serializers.ModelSerializer):
         )
         extra_kwargs = {
             'href': { 'required': False },
+            'quote': { 'required': False },
             'background_image': { 'required': False },
             'date': { 'required': False },
             'start_date': { 'required': False },

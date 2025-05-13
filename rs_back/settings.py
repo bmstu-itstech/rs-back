@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'partners',
     'events',
     'hardathons',
-    'hardathons_preview',
 ]
 
 MIDDLEWARE = [

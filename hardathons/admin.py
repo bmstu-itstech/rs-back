@@ -7,10 +7,13 @@ from hardathons.models import Hardathon
 class EventsAdmin(admin.ModelAdmin):
     list_display = (
         'id',
+        'title',
+        'href',
+        'background_image',
         'date',
         'start_date',
         'end_date',
-        'result',
+        'result_date',
         'place',
         'media',
         'projects',

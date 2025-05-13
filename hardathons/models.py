@@ -2,8 +2,25 @@ from django.db import models
 
 
 class Hardathon(models.Model):
+    title = models.CharField(
+        'Название',
+        max_length=100,
+        help_text='Название мероприятия, например, Хардатон Инженерный Вызов. Не более 100 символов'
+    )
+    href = models.URLField(
+        'Ссылка',
+        blank=True,
+        help_text='Ссылка на хардатон',
+    )
+    background_image = models.ImageField(
+        'Фоновое изображение',
+        blank=True,
+        null=True,
+        upload_to='hardathon/backgrounds/',
+    )
     date = models.CharField(
         'Дата проведения',
+        blank=True,
         max_length=100,
         help_text='Дата проведения, например, 11.05.2025',
     )
@@ -19,7 +36,7 @@ class Hardathon(models.Model):
         max_length=100,
         help_text='Дата окончания регистрации, например, 11.05.2025',
     )
-    result = models.CharField(
+    result_date = models.CharField(
         'Итоги',
         blank=True,
         max_length=100,

@@ -8,10 +8,13 @@ class HardathonSerializer(serializers.ModelSerializer):
         model = Hardathon
         fields = (
             'id',
+            'title',
+            'href',
+            'background_image',
             'date',
             'start_date',
             'end_date',
-            'result',
+            'result_date',
             'place',
             'media',
             'projects',
@@ -20,9 +23,12 @@ class HardathonSerializer(serializers.ModelSerializer):
             'partners',
         )
         extra_kwargs = {
+            'href': { 'required': False },
+            'background_image': { 'required': False },
+            'date': { 'required': False },
             'start_date': { 'required': False },
             'end_date': { 'required': False },
-            'result': { 'required': False },
+            'result_date': { 'required': False },
             'place': { 'required': False },
             'media': { 'required': False },
             'projects': { 'required': False },

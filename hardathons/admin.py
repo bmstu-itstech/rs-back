@@ -9,6 +9,7 @@ class EventsAdmin(admin.ModelAdmin):
         'id',
         'title',
         'href',
+        'quote',
         'background_image',
         'date',
         'start_date',

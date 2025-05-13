@@ -5,7 +5,7 @@ class Hardathon(models.Model):
     title = models.CharField(
         'Название',
         max_length=100,
-        help_text='Название мероприятия, например, Хардатон Инженерный Вызов. Не более 100 символов'
+        help_text='Название мероприятия, например, Хардатон Инженерный Вызов. Не более 100 символов',
     )
     href = models.URLField(
         'Ссылка',
@@ -17,6 +17,10 @@ class Hardathon(models.Model):
         blank=True,
         null=True,
         upload_to='hardathon/backgrounds/',
+    )
+    quote = models.TextField(
+        'Цитата',
+        blank=True,
     )
     date = models.CharField(
         'Дата проведения',
@@ -45,7 +49,7 @@ class Hardathon(models.Model):
     place = models.TextField(
         'Место проведения',
         blank=True,
-        help_text='Месторо проведения (адрес/ссылка)'
+        help_text='Месторо проведения (адрес/ссылка)',
     )
     media = models.TextField(
         'СМИ',

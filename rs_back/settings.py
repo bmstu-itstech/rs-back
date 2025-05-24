@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from config import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-8*4kc=r)9cn$drubv9vml7ele^cxu65rn+yz)x5bh7=z+0)ljy'
+SECRET_KEY = env.env_required('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.env_with_default_bool('DEBUG', 'False')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env.env_list_with_default('env_list_with_default')
 
 
 # Application definition
@@ -136,9 +137,9 @@ MEDIA_URL = 'media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CORS settings
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-]
+CORS_ALLOWED_ORIGINS = env.env_list_with_default(
+    'CORS_ALLOWED_ORIGINS', 'http://localhost:3000'
+)
 
 # REST Django framework
 REST_FRAMEWORK = {

@@ -26,7 +26,7 @@ SECRET_KEY = env.env_required('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.env_with_default_bool('DEBUG', 'False')
 
-ALLOWED_HOSTS = env.env_list_with_default('env_list_with_default')
+ALLOWED_HOSTS = env.env_list_with_default('ALLOWED_HOSTS')
 
 
 # Application definition

@@ -49,7 +49,7 @@ class Hardathon(models.Model):
     place = models.TextField(
         'Место проведения',
         blank=True,
-        help_text='Месторо проведения (адрес/ссылка)',
+        help_text='Место проведения (адрес/ссылка)',
     )
     media = models.TextField(
         'СМИ',

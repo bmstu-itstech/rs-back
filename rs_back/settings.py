@@ -14,7 +14,7 @@ from pathlib import Path
 from config import env
 
 import logging
-logging.basicConfig(filename='error.log',level=logging.DEBUG)
+logging.basicConfig(filename='error.log', level=logging.DEBUG)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,8 +29,7 @@ SECRET_KEY = env.env_required('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.env_with_default_bool('DEBUG', 'False')
 
-ALLOWED_HOSTS = env.env_list_with_default('ALLOWED_HOSTS')
-
+ALLOWED_HOSTS = env.env_list_with_default('ALLOWED_HOSTS', '127.0.0.1')
 
 # Application definition
 
@@ -88,11 +87,21 @@ WSGI_APPLICATION = 'rs_back.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    "default": {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+if not DEBUG:
+    DATABASES['default'] = {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": env.env_required('DB_NAME'),
+        "USER": env.env_required('DB_USER'),
+        "PASSWORD": env.env_required('DB_PASSWORD'),
+        "HOST": env.env_required('DB_HOST'),
+        "PORT": env.env_with_default_int('DB_PORT', 5432),
+    }
 
 
 # Password validation

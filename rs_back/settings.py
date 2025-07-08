@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'rs_back.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {
+    'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
@@ -95,12 +95,12 @@ DATABASES = {
 
 if not DEBUG:
     DATABASES['default'] = {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": env.env_required('DB_NAME'),
-        "USER": env.env_required('DB_USER'),
-        "PASSWORD": env.env_required('DB_PASSWORD'),
-        "HOST": env.env_required('DB_HOST'),
-        "PORT": env.env_with_default_int('DB_PORT', 5432),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env.env_required('DB_NAME'),
+        'USER': env.env_required('DB_USER'),
+        'PASSWORD': env.env_required('DB_PASSWORD'),
+        'HOST': env.env_required('DB_HOST'),
+        'PORT': env.env_with_default_int('DB_PORT', 5432),
     }
 
 

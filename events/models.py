@@ -2,21 +2,20 @@ from django.db import models
 
 
 class Event(models.Model):
-    name = models.CharField(
+    name = models.TextField(
         'Название',
-        max_length=100,
-        help_text='Название мероприятия, например, Хардатон Инженерный Вызов. Не более 100 символов',
+        help_text='Название мероприятия, например, Хардатон Инженерный Вызов',
     )
     description = models.TextField(
         'Описание',
         blank=True,
         help_text='Подробное описание мероприятия',
     )
-    date = models.CharField(
+    date = models.DateField(
         'Дата',
+        blank=True,
         null=True,
-        max_length=50,
-        help_text='Дата проведения мероприятия, например, 31.02.25',
+        help_text='Дата проведения мероприятия',
     )
     media_url = models.URLField(
         'СМИ',
@@ -50,6 +49,9 @@ class Event(models.Model):
         upload_to='events/backgrounds/',
         help_text='Фоновое изображение для мероприятия',
     )
+
+    def __str__(self):
+        return f"{self.name} ({self.date})" if self.date else self.name
 
     class Meta:
         verbose_name = 'Событие'

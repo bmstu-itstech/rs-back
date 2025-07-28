@@ -13,3 +13,10 @@ class NewsRecordSerializer(serializers.ModelSerializer):
             'href',
             'image',
         )
+        extra_kwargs = {
+            'title': {'required': False},
+            'content': {'required': False},
+            'href': {'required': False},
+            'image': {'required': False},
+        }
+        read_only_fields = ('id', )

@@ -2,23 +2,25 @@ from django.db import models
 
 
 class Partner(models.Model):
-    name = models.CharField(
+    name = models.TextField(
         'Название',
-        max_length=100,
         help_text='Название партнёрской организации',
     )
     url = models.URLField(
         'Ссылка',
+        blank=True,
         help_text='Ссылка на сайт партнёра',
     )
     logo = models.ImageField(
         'Логотип',
-        upload_to='partners',
+        blank=True,
+        null=True,
+        upload_to='partners/',
         help_text='Изображение логотипа партнёра',
     )
 
     def __str__(self):
-        return self.name
+        return f"{self.name} ({self.url})" if self.url else self.name
 
     class Meta:
         verbose_name = 'Партнёр'

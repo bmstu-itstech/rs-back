@@ -134,6 +134,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+USE_L10N = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -155,9 +156,12 @@ CORS_ALLOWED_ORIGINS = env.env_list_with_default(
 
 # REST Django framework
 REST_FRAMEWORK = {
+    'DATE_INPUT_FORMATS': ['%d.%m.%Y', '%d-%m-%Y', ],
+    'DATE_FORMAT': '%d.%m.%Y',
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
+# drf-spectacular
 SPECTACULAR_SETTINGS = {
     'SCHEMA_PATH_PREFIX': r'/api/v[0-9]',
 }

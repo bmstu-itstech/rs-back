@@ -14,4 +14,5 @@ class EventsAdmin(admin.ModelAdmin):
         'album_url',
         'on_map_url',
         'docs_url',
+        'registration_url',
     )

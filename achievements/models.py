@@ -2,27 +2,30 @@ from django.db import models
 
 
 class Achievement(models.Model):
-    title = models.CharField(
+    title = models.TextField(
         'Заголовок',
-        max_length=100,
-        help_text='Заголовок, краткое описание достижения. Не более 100 символов',
+        help_text='Заголовок, краткое описание достижения',
     )
     description = models.TextField(
         'Описание',
+        blank=True,
         help_text='Описание достижения ЦМР'
     )
     album_url = models.URLField(
         'Альбом',
+        blank=True,
         help_text='Ссылка на фотоальбом в соцсетях или на сайте',
     )
     media_url = models.URLField(
         'СМИ',
+        blank=True,
         help_text='Ссылка на упоминание в соцсетях',
     )
     image = models.ImageField(
         'Изображение',
+        blank=True,
         null=True,
-        upload_to='achievements',
+        upload_to='achievements/',
         help_text='Фотография с мероприятия',
     )
 

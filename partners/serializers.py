@@ -12,3 +12,9 @@ class PartnerSerializer(serializers.ModelSerializer):
             'url',
             'logo',
         )
+        extra_kwargs = {
+            'name': {'required': False},
+            'url': {'required': False},
+            'logo': {'required': False},
+        }
+        read_only_fields = ('id', )

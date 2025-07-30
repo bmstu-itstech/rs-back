@@ -15,5 +15,9 @@ class AchievementSerializer(serializers.ModelSerializer):
             'image',
         )
         extra_kwargs = {
-            'image': { 'required': False },
+            'description': {'required': False},
+            'album_url': {'required': False},
+            'media_url': {'required': False},
+            'image': {'required': False},
         }
+        read_only_fields = ('id', )

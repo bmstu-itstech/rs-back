@@ -14,7 +14,7 @@ from pathlib import Path
 from config import env
 
 import logging
-logging.basicConfig(filename='error.log',level=logging.DEBUG)
+logging.basicConfig(filename='error.log', level=logging.DEBUG)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,8 +29,7 @@ SECRET_KEY = env.env_required('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.env_with_default_bool('DEBUG', 'False')
 
-ALLOWED_HOSTS = env.env_list_with_default('ALLOWED_HOSTS')
-
+ALLOWED_HOSTS = env.env_list_with_default('ALLOWED_HOSTS', '127.0.0.1')
 
 # Application definition
 
@@ -94,6 +93,16 @@ DATABASES = {
     }
 }
 
+if not DEBUG:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env.env_required('DB_NAME'),
+        'USER': env.env_required('DB_USER'),
+        'PASSWORD': env.env_required('DB_PASSWORD'),
+        'HOST': env.env_required('DB_HOST'),
+        'PORT': env.env_with_default_int('DB_PORT', 5432),
+    }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -125,6 +134,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+USE_L10N = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -146,9 +156,12 @@ CORS_ALLOWED_ORIGINS = env.env_list_with_default(
 
 # REST Django framework
 REST_FRAMEWORK = {
+    'DATE_INPUT_FORMATS': ['%d.%m.%Y', '%d-%m-%Y', ],
+    'DATE_FORMAT': '%d.%m.%Y',
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
+# drf-spectacular
 SPECTACULAR_SETTINGS = {
     'SCHEMA_PATH_PREFIX': r'/api/v[0-9]',
 }

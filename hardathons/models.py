@@ -2,10 +2,9 @@ from django.db import models
 
 
 class Hardathon(models.Model):
-    title = models.CharField(
+    title = models.TextField(
         'Название',
-        max_length=100,
-        help_text='Название мероприятия, например, Хардатон Инженерный Вызов. Не более 100 символов',
+        help_text='Название мероприятия, например, Хардатон Инженерный Вызов',
     )
     href = models.URLField(
         'Ссылка',
@@ -22,29 +21,29 @@ class Hardathon(models.Model):
         'Цитата',
         blank=True,
     )
-    date = models.CharField(
+    date = models.DateField(
         'Дата проведения',
         blank=True,
-        max_length=100,
-        help_text='Дата проведения, например, 11.05.2025',
+        null=True,
+        help_text='Дата проведения',
     )
-    start_date = models.CharField(
+    start_date = models.DateField(
         'Старт приёма заявок',
         blank=True,
-        max_length=100,
-        help_text='Дата старта приёма заявок, например, 11.05.2025',
+        null=True,
+        help_text='Дата старта приёма заявок',
     )
-    end_date = models.CharField(
+    end_date = models.DateField(
         'Окончание регистрации',
         blank=True,
-        max_length=100,
-        help_text='Дата окончания регистрации, например, 11.05.2025',
+        null=True,
+        help_text='Дата окончания регистрации',
     )
-    result_date = models.CharField(
+    result_date = models.DateField(
         'Итоги',
         blank=True,
-        max_length=100,
-        help_text='Дата подведения итогов, например, 11.05.2025',
+        null=True,
+        help_text='Дата подведения итогов',
     )
     place = models.TextField(
         'Место проведения',
@@ -72,6 +71,9 @@ class Hardathon(models.Model):
         'Партнёры',
         blank=True,
     )
+
+    def __str__(self):
+        return f"{self.title} ({self.href})" if self.href else self.title
 
     class Meta:
         verbose_name = 'Хардатон'

@@ -2,27 +2,30 @@ from django.db import models
 
 
 class NewsRecord(models.Model):
-    title = models.CharField(
+    title = models.TextField(
         'Заголовок',
-        max_length=100,
-        help_text='Заголовок, краткое описание новости. Не более 100 символов',
+        help_text='Заголовок, краткое описание новости',
     )
     content = models.TextField(
         'Содержание',
+        blank=True,
         help_text='Текст новости',
     )
     href = models.URLField(
         'Ссылка',
-        help_text='Ссылка на пост в соцсетях с более подробной информацией о новости'
+        blank=True,
+        help_text='Ссылка на пост в соцсетях с более подробной информацией'
     )
     image = models.ImageField(
         'Изображение',
+        blank=True,
+        null=True,
         upload_to='news/',
         help_text='Изображение для новости'
     )
 
     def __str__(self):
-        return self.title
+        return f"{self.title} ({self.href})" if self.href else self.title
 
     class Meta:
         verbose_name = 'Новость'
